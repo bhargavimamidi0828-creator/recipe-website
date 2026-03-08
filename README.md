@@ -1,2 +1,36 @@
-# recipe-website
-Recipe Website is a simple web project created using HTML, CSS, and JavaScript. The website displays different food recipes in a clean card layout. Users can search for recipes and view detailed instructions for each dish.  The project contains multiple recipe pages such as Dosa, Pizza, Burger, Noodles, Samosa, Pasta, Fried Rice..
+
+# 🍽 Recipe Website
+
+This is a simple Recipe Website created using HTML, CSS, and JavaScript.
+
+## 📖 About the Project
+The website displays different food recipes in a card layout. Users can search for recipes and open individual pages to see ingredients and preparation steps.
+
+## 🍜 Recipes Included
+- Dosa
+- Pizza
+- Burger
+- Noodles
+- Samosa
+- Pasta
+- Fried Rice
+- Sandwich
+- Ice Cream
+- Gulab Jamun
+
+## 🚀 Features
+- Simple recipe cards
+- Search functionality
+- Like button interaction
+- Separate pages for each recipe
+
+## 🛠 Technologies Used
+- HTML
+- CSS
+- JavaScript
+
+## 🌐 Live Website
+You can view the project using GitHub Pages.
+
+## 👩‍💻 Author
+Bhargavi
