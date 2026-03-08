@@ -1,4 +1,6 @@
+## Project Preview
 
+![Recipe Website](screenshot.png)
 # 🍽 Recipe Website
 
 This is a simple Recipe Website created using HTML, CSS, and JavaScript.
