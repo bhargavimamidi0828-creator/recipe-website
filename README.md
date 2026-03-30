@@ -10,15 +10,12 @@ The website displays different food recipes in a card layout. Users can search f
 
 ## 🍜 Recipes Included
 - Dosa
-- Pizza
-- Burger
 - Noodles
 - Samosa
 - Pasta
 - Fried Rice
 - Sandwich
 - Ice Cream
-- Gulab Jamun
 
 ## 🚀 Features
 - Simple recipe cards
