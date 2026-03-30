@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Bhargavi Recipe Book</title>
+
+    <style>
+        body {
+            font-family: Arial;
+            background-color: #f2f2f2;
+            margin: 0;
+        }
+
+        h1 {
+            padding: 20px;
+        }
+
+        input {
+            margin-left: 20px;
+            padding: 10px;
+            width: 250px;
+        }
+
+        .container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            padding: 20px;
+        }
+
+        .card {
+            background: #dcdcdc;
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 5px 5px 10px gray;
+        }
+
+        .btn {
+            padding: 8px 12px;
+            border: none;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        .like-btn {
+            background: red;
+            color: white;
+            border-radius: 8px;
+        }
+
+        /* MODAL */
+        #modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.6);
+        }
+
+        #modal-box {
+            background: white;
+            width: 50%;
+            margin: 50px auto;
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        ul {
+            text-align: left;
+        }
+    </style>
+</head>
+
+<body>
+
+<h1>🍽️ Bhargavi Recipe Book</h1>
+
+<input type="text" id="search" placeholder="Search recipe..." onkeyup="searchRecipe()">
+
+<div class="container">
+
+    <div class="card">
+        <h2>Ice Cream</h2>
+        <p>Category: Dessert</p>
+        <a href="#" onclick="showRecipe('icecream')">View Recipe</a><br>
+        <button class="btn like-btn" onclick="like(this)">❤️ Like</button>
+    </div>
+
+    <div class="card">
+        <h2>Noodles</h2>
+        <p>Category: Fast Food</p>
+        <a href="#" onclick="showRecipe('noodles')">View Recipe</a><br>
+        <button class="btn like-btn" onclick="like(this)">❤️ Like</button>
+    </div>
+
+    <div class="card">
+        <h2>Samosa</h2>
+        <p>Category: Snack</p>
+        <a href="#" onclick="showRecipe('samosa')">View Recipe</a><br>
+        <button class="btn like-btn" onclick="like(this)">❤️ Like</button>
+    </div>
+
+    <div class="card">
+        <h2>Pasta</h2>
+        <p>Category: Fast Food</p>
+        <a href="#" onclick="showRecipe('pasta')">View Recipe</a><br>
+        <button class="btn like-btn" onclick="like(this)">❤️ Like</button>
+    </div>
+
+    <div class="card">
+        <h2>Dosa</h2>
+        <p>Category: Breakfast</p>
+        <a href="#" onclick="showRecipe('dosa')">View Recipe</a><br>
+        <button class="btn like-btn" onclick="like(this)">❤️ Like</button>
+    </div>
+
+    <div class="card">
+        <h2>Fried Rice</h2>
+        <p>Category: Main Dish</p>
+        <a href="#" onclick="showRecipe('friedrice')">View Recipe</a><br>
+        <button class="btn like-btn" onclick="like(this)">❤️ Like</button>
+    </div>
+
+</div>
+
+<!-- MODAL -->
+<div id="modal">
+    <div id="modal-box">
+        <button onclick="closeModal()">❌ Close</button>
+        <div id="modalContent"></div>
+    </div>
+</div>
+
+<script>
+function showRecipe(name) {
+    let data = {
+        icecream: {
+            title: "Ice Cream",
+            ingredients: ["Milk", "Sugar", "Vanilla Essence"],
+            steps: ["Boil milk", "Add sugar", "Cool it", "Freeze"]
+        },
+        noodles: {
+            title: "Noodles",
+            ingredients: ["Noodles", "Water", "Masala"],
+            steps: ["Boil water", "Add noodles", "Add masala", "Cook 5 mins"]
+        },
+        samosa: {
+            title: "Samosa",
+            ingredients: ["Maida", "Potato", "Spices"],
+            steps: ["Prepare dough", "Make filling", "Stuff", "Deep fry"]
+        },
+        pasta: {
+            title: "Pasta",
+            ingredients: ["Pasta", "Sauce"],
+            steps: ["Boil pasta", "Add sauce", "Mix well"]
+        },
+        dosa: {
+            title: "Dosa",
+            ingredients: ["Rice", "Urad Dal", "Salt"],
+            steps: ["Soak rice & dal", "Grind batter", "Ferment", "Cook on pan"]
+        },
+        friedrice: {
+            title: "Fried Rice",
+            ingredients: ["Rice", "Vegetables", "Sauce"],
+            steps: ["Cook rice", "Fry vegetables", "Mix rice", "Add sauce"]
+        }
+    };
+
+    let recipe = data[name];
+
+    let ing = recipe.ingredients.map(i => `<li>${i}</li>`).join("");
+    let steps = recipe.steps.map(s => `<li>${s}</li>`).join("");
+
+    document.getElementById("modalContent").innerHTML = `
+        <h2>${recipe.title}</h2>
+        <h3>Ingredients:</h3>
+        <ul>${ing}</ul>
+        <h3>Process:</h3>
+        <ul>${steps}</ul>
+    `;
+
+    document.getElementById("modal").style.display = "block";
+}
+
+function closeModal() {
+    document.getElementById("modal").style.display = "none";
+}
+
+function like(btn) {
+    btn.innerHTML = "❤️ Liked";
+}
+
+function searchRecipe() {
+    let input = document.getElementById("search").value.toLowerCase();
+    let cards = document.querySelectorAll(".card");
+
+    cards.forEach(card => {
+        let title = card.querySelector("h2").innerText.toLowerCase();
+        card.style.display = title.includes(input) ? "block" : "none";
+    });
+}
+</script>
+
+</body>
+</html>
